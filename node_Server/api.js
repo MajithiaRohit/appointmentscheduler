@@ -18,7 +18,7 @@ mongoose.connect(ConnectionString).then(()=>{
         })
     });
 
-    app.get('/oneUser/:AppointmentID',async(req, res)=>{
+    app.get('/ApoinmentShaduler/oneUser/:AppointmentID',async(req, res)=>{
 
         userDatas.find({AppointmentID : req.params.AppointmentID})
         .then((data)=>{
@@ -26,7 +26,7 @@ mongoose.connect(ConnectionString).then(()=>{
         })
     });
 
-    app.post('/addUser',(req, res)=>{
+    app.post('/ApoinmentShaduler/addUser',(req, res)=>{
 
         const formData ={
             AppointmentID :req.body.AppointmentID, 
@@ -41,12 +41,12 @@ mongoose.connect(ConnectionString).then(()=>{
 
     });
 
-    app.delete('/deleteUser/:AppointmentID',async(req, res)=>{
+    app.delete('/ApoinmentShaduler/deleteUser/:AppointmentID',async(req, res)=>{
             await userDatas.deleteOne({AppointmentID : req.params.AppointmentID});
             res.send("User deleted successfully.");
     })
 
-    app.put('/updateUser/:AppointmentID',async(req,res)=>{
+    app.put('/ApoinmentShaduler/updateUser/:AppointmentID',async(req,res)=>{
         await userDatas.updateOne({AppointmentID: req.params.AppointmentID},{$set:{
             ClientName : req.body.ClientName, 
             Date : req.body.Date, 
