@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema({
-    AppointmentID : String, 
+    AppointmentID : Number, 
     ClientName : String, 
-    Date : Date, 
+    Date : String, 
     Time : String, 
     Location : String
 });
